@@ -86,7 +86,7 @@ class HashTable:
 
         if self.storage[hashed_key] is None:
             return False
-        for i in range(0, len(self.map[key_hash])):
+        for i in range(0, len(self.storage[hashed_key])):
             if self.storage[hashed_key][i][0] == key:
                 self.storage[hashed_key].pop(i)
                 return True
@@ -116,7 +116,7 @@ class HashTable:
         self.capacity = self.capacity * 2
         new_storage = [None] * self.capacity * 2
 
-        for i in range(self.length):
+        for i in range(self.storage):
             new_storage[i] = self.storage[i]
         self.storage = new_storage
 
